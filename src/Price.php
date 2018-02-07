@@ -21,11 +21,12 @@ class Price extends CryptocompareApi
      * Description: Get data for a currency pair. It returns general block explorer information, aggregated data and individual data for each exchange available.
      */
     public function getSinglePrice($tryConversion = "1", $fsym = "BTC", $tsyms = array("USD", "EUR"), $e = "CCCAGG", $sign = false) {
-        $extraParams = $this->appplicationName;;
+        $extraParams = $this->appplicationName;
+        $_tsyms = $this->arrayToCommaSeperatedString($tsyms)
         $params = array(
             "tryConversion" => $tryConversion,
             "fsym" => $fsym,
-            "tsyms" => $tsyms,
+            "tsyms" => $_tsyms,
             "e" => $e,
             "extraParams" => $extraParams,
             "sign" => $sign
